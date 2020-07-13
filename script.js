@@ -1,33 +1,19 @@
-var d,h,m,s,animate,ap;
 var sec = document.getElementById("sec")
 var min = document.getElementById("min")
 var hr = document.getElementById("hr")
 var amPm= document.getElementById("ap")
-function init(){
-	d=new Date();
-	h=d.getHours();
-	m=d.getMinutes();
-	s=d.getSeconds();
-	ap=" AM"
-	clock();
-};
 
 function clock(){
-	if(s==60){
-		s=0;
-		m++;
-	}
-	if(m==60){
-		m=0;
-		h++;
-	}
-	if(h>=24){
-		h=0
-	}
-	let temp=h
-	if(temp>=12){
-		if(temp!=12){ 
-			temp-=12;
+	
+	let d=new Date();
+	let h=d.getHours();
+	let m=d.getMinutes();
+	let s=d.getSeconds();
+	let ap="AM"
+
+	if(h>=12){
+		if(h!=12){ 
+			h-=12;
 		}
 		ap="PM";
 	}else{ 
@@ -37,7 +23,7 @@ function clock(){
 	min.innerHTML=m.toString().padStart(2,0);
 	hr.innerHTML=h.toString().padStart(2,0);
 	amPm.innerHTML=ap.toString()
-	s++
-	animate=setTimeout(clock,1000);
+	setTimeout(clock,1000);
 };
-window.onload=init;
+
+window.onload=clock;
