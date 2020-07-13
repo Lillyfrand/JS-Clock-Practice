@@ -1,8 +1,4 @@
-var sec = document.getElementById("sec")
-var min = document.getElementById("min")
-var hr = document.getElementById("hr")
-var amPm= document.getElementById("ap")
-
+var time = document.getElementById("time")
 function clock(){
 	
 	let d=new Date();
@@ -19,10 +15,7 @@ function clock(){
 	}else{ 
 		ap="AM";
 	}
-	sec.innerHTML=s.toString().padStart(2,0);
-	min.innerHTML=m.toString().padStart(2,0);
-	hr.innerHTML=h.toString().padStart(2,0);
-	amPm.innerHTML=ap.toString()
+	time.innerHTML=h.toString().padStart(2,0)+":"+m.toString().padStart(2,0)+":"+s.toString().padStart(2,0)+" "+ap;
 	setTimeout(clock,1000);
 };
 
